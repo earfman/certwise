@@ -66,6 +66,19 @@
     </script>
     
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleAnswer() {
+            const answer = document.getElementById('answer');
+            const btn = document.querySelector('.reveal-btn');
+            if (answer.style.display === 'none') {
+                answer.style.display = 'block';
+                btn.textContent = '🙈 Hide Answer';
+            } else {
+                answer.style.display = 'none';
+                btn.textContent = '👁️ Show Answer';
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -148,22 +161,71 @@
                 <h3>What's Included in These Study Workbooks</h3>
                 <div class="features-highlight">
                     <div class="feature-highlight">
-                        <h4>📚 Complete Domain 1 Coverage</h4>
+                        <div class="feature-icon">🌐</div>
+                        <h4>Complete Domain 1 Coverage</h4>
                         <p>225+ fill-in-the-blank questions covering all Domain 1 topics: Network types, OSI model, TCP/IP, subnetting, ports, protocols, cabling, and wireless technologies.</p>
+                        <div class="feature-stats">
+                            <span class="stat">📊 225+ Questions</span>
+                            <span class="stat">🎯 7 Key Topics</span>
+                        </div>
                     </div>
                     <div class="feature-highlight">
-                        <h4>🎯 Active Learning Format</h4>
+                        <div class="feature-icon">🧠</div>
+                        <h4>Active Learning Format</h4>
                         <p>Instead of just reading, you'll write out answers to test your memory and understanding of networking concepts.</p>
+                        <div class="feature-stats">
+                            <span class="stat">✍️ Fill-in-blanks</span>
+                            <span class="stat">🔄 Active Recall</span>
+                        </div>
                     </div>
                     <div class="feature-highlight">
-                        <h4>📖 Professor Messer Compatible</h4>
+                        <div class="feature-icon">🎥</div>
+                        <h4>Professor Messer Compatible</h4>
                         <p>Questions follow the same topics and order as Professor Messer's free Network+ video series, so you can use them together.</p>
+                        <div class="feature-stats">
+                            <span class="stat">📺 Video Aligned</span>
+                            <span class="stat">🔗 Integrated Study</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="early-adopter">
                     <h4>🚀 Be an Early Adopter</h4>
                     <p>These workbooks are newly created and I'm looking for feedback from the first students who use them. If you try them out, I'd love to hear how they worked for your studies!</p>
+                </div>
+            </section>
+
+            <!-- Sample Preview -->
+            <section class="sample-preview">
+                <div class="container">
+                    <h3>📖 Free Sample: See What You'll Get</h3>
+                    <p class="sample-intro">Here's a preview of the active-recall format used in the workbooks:</p>
+                    
+                    <div class="sample-card">
+                        <div class="sample-header">
+                            <h4>Sample Question from Standard Edition</h4>
+                            <span class="sample-badge">Domain 1.1 - Network Types</span>
+                        </div>
+                        <div class="sample-content">
+                            <div class="question-block">
+                                <p><strong>Fill in the blanks:</strong></p>
+                                <p>A _______ network covers a small geographic area like an office building, while a _______ network spans across cities or countries. The most common wireless standard for local networks is _______.</p>
+                                
+                                <div class="answer-reveal">
+                                    <button class="reveal-btn" onclick="toggleAnswer()">👁️ Show Answer</button>
+                                    <div class="answer-content" id="answer" style="display: none;">
+                                        <p><strong>Answer:</strong> LAN, WAN, 802.11 (Wi-Fi)</p>
+                                        <p><strong>Explanation:</strong> LANs (Local Area Networks) are limited to small areas, WANs (Wide Area Networks) connect distant locations, and 802.11 is the IEEE standard for wireless networking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sample-cta">
+                        <p>This is just 1 of 225+ questions in the Standard Edition workbook!</p>
+                        <a href="#offer" class="btn-sample">Get the Full Workbook →</a>
+                    </div>
                 </div>
             </section>
 
@@ -309,5 +371,28 @@
             </footer>
         </div>
     </main>
+
+    <!-- Sticky CTA Button -->
+    <div class="sticky-cta">
+        <a href="#offer" class="sticky-btn">
+            🚀 Get Workbooks - $3
+        </a>
+    </div>
+
+    <script>
+        // Show/hide sticky button based on scroll
+        window.addEventListener('scroll', function() {
+            const stickyBtn = document.querySelector('.sticky-cta');
+            const offerSection = document.querySelector('#offer');
+            const offerTop = offerSection.offsetTop;
+            const scrollTop = window.pageYOffset;
+            
+            if (scrollTop > 500 && scrollTop < offerTop - 100) {
+                stickyBtn.style.display = 'block';
+            } else {
+                stickyBtn.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
